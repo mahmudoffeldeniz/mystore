@@ -1,0 +1,280 @@
+/* Genel stiller */
+.our-works {
+  padding: 60px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin: 0 4px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: normal;
+  margin-bottom: 0px;
+  font-weight: 600;
+  padding: 0 !important;
+  position: relative;
+}
+.title-h4{
+  font-weight: normal;
+  font-size: 1.2rem;
+  padding: 0;
+  margin: 0;
+  position: relative;
+
+}
+.section-title::after {
+  content: "";
+  width: 100px;
+  height: 3px;
+  background:  inherit;
+  display: block;
+  margin: 0px auto 0;
+  border-radius: 3px;
+}
+
+/* Grid düzeni */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+  padding: 0 20px;
+}
+
+/* Kart tasarımı */
+.work-card {
+  background: #fff !important;
+border-radius: 15px !important;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Resim stilleri */
+.card-image {
+  width: 100%;
+  overflow: hidden;
+  filter: blur(20px #000);
+}
+
+
+
+.card-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.work-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* Kart içeriği */
+.card-info {
+  padding: 20px;
+}
+
+.card-info h3 {
+  margin: 0 0 15px;
+  font-size: 1.5rem;
+  color: #ff6f61;
+}
+
+.card-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .card-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .card-info p {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ortak grid ayarları */
+.works-grid {
+  gap: 20px;
+}
+
+/* ana sayfa: 3 elemanlı, kenarlar daha dar, ortadaki featured */
+.works-grid.main-page {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr 0.8fr;
+}
+
+.works-grid.main-page .work-card {
+  transition: transform 0.3s;
+}
+.works-grid.main-page .work-card:not(.featured) {
+  transform: scale(0.9);       /* kenardaki kartları %90 boyutunda */
+}
+.work-card.featured {
+  transform: scale(1.05);       /* ortadakini hafifçe büyüt */
+}
+
+/* blog sayfası: tüm kartlar eşit, responsive */
+.works-grid.blog-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* ortak kart stili */
+.work-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+/* resim ve içerik */
+.card-image img {
+  width: 100%;
+  background: #F5f5f5;
+  display: block;
+}
+.card-info {
+  padding: 16px;
+}
+
+/* Read More butonu */
+.read-more-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid lightblue;
+  border-radius: 25px;
+  background-color: #f5f5f5;
+  color: black;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+.read-more-btn:hover {
+  background-color:#c1c1c198;
+}
+
+
+/* BlogDetail.css */
+.blog-detail .detail-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.blog-detail .meta {
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+.related-posts h5 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.related-link {
+  color: #000;
+  text-decoration: none;
+}
+.related-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .works-grid.main-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;          
+    padding: 0 1rem;   
+  }
+}
+
+/* Header.css */
+
+/* Naviqasiya keçidlər üçün əsas stil */
+body{
+margin: 0px;
+padding: 0px;
+}
+
+
+.Main-Header {
+border-radius: 15px !important;
+border: 1px solid rgba(172, 255, 47, 0.223);
+width: calc(99% - 2px) !important; /* 1px gap on each side */
+margin: 7px auto 0 !important;
+left: -1px !important;
+}
+
+
+
+.logo{
+width: 80px !important;
+height: 60px!important;
+margin:0 6px  !important;
+object-fit: contain;
+}
+.Top-header{
+background: inherit !important;
+margin:0 18px  !important;
+}
+.navlink {
+color: inherit;
+text-decoration: none;
+border-radius: 25px !important;
+padding:10 30px !important; /* MUI theme.spacing(1,2) üçün: 8px 16px */
+height: 40px;
+font-weight: 600 !important;
+min-width: 100px;
+font-size: 16px !important;
+box-shadow: 0 0 2px#e9cdcd;
+transition: background-color 0.3s ease, border-radius 1s;
+}
+
+/* Hover və aktiv hallarda tətbiq olunacaq stil */
+.navlink:hover,
+.navlink.active {
+background-color: #f3f3f3;
+color: blueviolet;
+border-radius: 20px;
+}
+
+/* Logo üçün keçid stilı */
+.logo-navlink {
+text-decoration: none;
+color: inherit;
+}
+
+
+
+.top-information{
+font-size: 12px;
+}
+
+
+
+@media (max-width: 768px) {
+.top-information{
+  display: none;
+}
+}
+
+
+.MuiAutocomplete-popper {
+z-index: 2000;
+}

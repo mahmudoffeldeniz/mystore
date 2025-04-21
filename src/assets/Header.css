@@ -1,0 +1,75 @@
+/* Header.css */
+
+/* Naviqasiya keçidlər üçün əsas stil */
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.Main-Header {
+  border-radius: 15px !important;
+  background: #fff !important;
+  border: 1px solid rgba(172, 255, 47, 0.223);
+  width: calc(99% - 2px) !important; /* 1px gap on each side */
+  margin: 7px auto 0 !important;
+  left: -1px !important;
+}
+
+
+
+.logo{
+  width: 80px !important;
+  height: 60px!important;
+  margin:0 6px  !important;
+  object-fit: contain;
+}
+.Top-header{
+  background: inherit !important;
+  margin:0 18px  !important;
+}
+.navlink {
+  color: inherit;
+  text-decoration: none;
+  border-radius: 25px !important;
+  padding:10 30px !important; /* MUI theme.spacing(1,2) üçün: 8px 16px */
+  height: 40px;
+  font-weight: 600 !important;
+  min-width: 100px;
+  font-size: 16px !important;
+  box-shadow: 0 0 2px#e9cdcd;
+  transition: background-color 0.3s ease, border-radius 1s;
+}
+
+/* Hover və aktiv hallarda tətbiq olunacaq stil */
+.navlink:hover,
+.navlink.active {
+  background-color: #f3f3f3;
+  color: blueviolet;
+  border-radius: 20px;
+}
+
+/* Logo üçün keçid stilı */
+.logo-navlink {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+.top-information{
+  font-size: 12px;
+}
+
+
+
+@media (max-width: 768px) {
+  .top-information{
+    display: none;
+  }
+}
+
+
+.MuiAutocomplete-popper {
+  z-index: 2000;
+}

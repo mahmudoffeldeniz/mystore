@@ -1,0 +1,77 @@
+/* Container: taşmaları gizler ve responsive genişlik sağlar */
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-bottom: 150px !important;
+  
+}
+
+
+*{
+  user-select: none !important;
+
+}
+
+/* Track: flex yapıda, animasyon uygulanıyor */
+.carousel-track {
+  display: flex;
+  animation: marquee 20s linear infinite;
+
+}
+
+/* "paused" sınıfı eklendiğinde animasyon durur */
+.paused .carousel-track {
+  animation-play-state: paused;
+}
+
+/* Her slide; responsive olarak görünür sayıya göre ayarlanıyor */
+.carousel-slide {
+  flex: 0 0 auto;
+  margin-right: 20px;
+  /* Masaüstü (6 slide görünmeli) */
+  width: calc((100% - 100px) / 6);
+  user-select: none !important;
+
+  padding: 8px;
+}
+
+.carousel-slide img{
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 255, 0.321))!important;
+}
+
+
+
+/* Laptop ve tablet: 3 slide görünmeli */
+@media (max-width: 1024px) {
+  .carousel-slide {
+    width: calc((100% - 40px) / 3);
+    margin-right: 10px;
+  }
+}
+
+/* Mobil: 2 slide görünmeli */
+@media (max-width: 768px) {
+  .carousel-slide {
+    width: calc((100% - 20px) / 2);
+    margin-right: 5px;
+  }
+}
+
+.brand-image {
+  width: 180px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Animasyon: Track, orijinal eleman setinin genişliği kadar sola kayar */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

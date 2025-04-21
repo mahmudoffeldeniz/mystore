@@ -1,0 +1,40 @@
+.zoom-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;    /* Görseli 400px’e sınırla */
+    margin: 0 auto;      /* Ortala */
+  }
+  
+  .zoom-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .img-zoom-lens {
+    position: absolute;
+    border: 2px solid rgba(0,0,0,0.4);
+    background-color: rgba(255,255,255,0.3);
+    display: none;
+    cursor: none;
+    pointer-events: none;
+  }
+  
+  .img-zoom-result {
+    position: absolute;
+    top: -10%;
+    left: calc(100% + 10px);  
+    width: 400px !important;             
+    height: 375px !important;   
+    object-fit: contain !important;         
+    border: 2px solid #ccc;
+    box-shadow: 0 0 20px #11111166;
+    border-radius: 10px;
+    background: #ffffff;
+    background-repeat: no-repeat;
+    display: none;
+    pointer-events: none;
+    z-index: 10;
+  }
+  

@@ -1,0 +1,87 @@
+.footer {
+  padding: 40px 20px;
+  margin:0 30px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  margin: auto !important;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.IconButton{
+  color: #000 !important;
+}
+
+.footer-description{
+  width: 250px;
+}
+
+/* Her sütunun sol hizalı olması için */
+.footer-column {
+  flex: 1;
+  min-width: 220px;
+  text-align: left;
+}
+
+.footer-logo {
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+.footer-description {
+  font-size: 0.9em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.footer-column h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: blue;
+  padding-left: 5px !important;
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  height: 10px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 50px;
+  font-size: 0.9em;
+}
+
+/* Responsive düzen: Küçük ekranlarda sütunlar ortalanır */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+}

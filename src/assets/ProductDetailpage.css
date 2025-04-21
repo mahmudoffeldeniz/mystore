@@ -1,0 +1,43 @@
+.image-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.thumbnail-list {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  justify-content: flex-start;
+}
+
+.thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: border 0.2s;
+}
+
+.thumb.active,
+.thumb:hover {
+  border-color: #1976d2;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #757575;
+}
+
+
+.main-image-wrapper img {
+  width: 350px !important;             
+  height: 250px !important;
+  object-fit: contain !important;            
+}
+
+.recent-carousel .slick-track {
+  display: flex !important; 
+  gap: 16px;                 
+}

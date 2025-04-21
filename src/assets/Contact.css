@@ -1,0 +1,329 @@
+/* Sayfa arka planını transparan yapar */
+body {
+  background: transparent;
+}
+
+
+/* Zarf çerçevesi */
+.frame {
+  width: 600px;
+  height: 350px;
+  margin: 110px 50px 0 50px;
+  margin-left: -2%;
+  position: relative;
+  background: #435d77;
+  border-radius: 0 0 40px 40px;
+  /* Gölge efekti */
+  filter: drop-shadow(0 0 20px #0000003b);
+  opacity: 0;
+  /* Sayfa açıldığında görünme animasyonu */
+  animation: fadeIn 1s forwards 0.3s;
+}
+
+/* Mesaj kolonunun üst boşluğunu sıfırlar */
+.col-message {
+  margin-top: 0 !important;
+}
+
+/* Konum kolonunun genişliğini belirler */
+.col-location {
+  flex: 1.1;
+  max-width: 40%;
+}
+
+/* Zarfı açma butonunun stil ve konumu */
+#button_open_envelope {
+  width: 180px;
+  height: 30px;
+  position: absolute;
+  z-index: 311;
+  top: 250px;
+  left: 208px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 26px;
+  text-align: center;
+  padding: 15px 0;
+  border: 2px solid #fff;
+  transition: 0.3s;
+}
+
+/* Buton hover efekti */
+#button_open_envelope:hover {
+  background: #3214ab;
+  color: #f7f7f7;
+  transition: background 0.25s, transform 0.5s ease-in;
+  cursor: pointer;
+}
+
+/* Mesaj kartı (kartın kendisi) */
+.message {
+  position: relative;
+  width: 580px;
+  min-height: 300px;
+  border-radius: 10px !important;
+  background: #fff;
+  margin: 0 auto;
+  top: 30px;
+  box-shadow: 0 0 5px 2px #f8f8f851;
+  transition: 2s ease-in-out;
+  transition-delay: 1.5s;
+  z-index: 300;
+  overflow: hidden !important;
+}
+
+/* Kartın zarfa girişi animasyonu */
+.enter {
+  animation: cardEnter 5s forwards ease-in-out;
+  overflow: hidden !important;
+  z-index: 1 !important;
+}
+
+/* Kartın ön yüzüne z-index ayarı */
+.enter::before {
+  z-index: 312 !important;
+}
+
+/* Kartın yukarı çıkıp sonra zarfa girmesi animasyonu */
+@keyframes cardEnter {
+  0% {
+    transform: translateY(5px);
+    z-index: 1 !important;
+  }
+  53% {
+    transform: translateY(-340px);
+    z-index: 2 !important;
+  }
+  100% {
+    transform: translateY(5px);
+    z-index: 1 !important;
+  }
+}
+
+.enter {
+  animation: cardEnter 3s forwards ease-in-out;
+  z-index: 2;
+}
+
+
+/* Zarf kenarları (sol, sağ, üst kapak) */
+.left,
+.right,
+.top {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  z-index: 310;
+}
+
+/* Sol kenar üçgeni */
+.left {
+  border-left: 300px solid #337efc;
+  border-top: 160px solid transparent;
+  border-bottom: 160px solid transparent;
+}
+
+/* Sağ kenar üçgeni */
+.right {
+  border-right: 300px solid #337efc;
+  border-top: 160px solid transparent;
+  border-bottom: 160px solid transparent;
+  left: 300px;
+}
+
+/* Zarf kapağı (üst kapak) */
+.top {
+  border-right: 300px solid transparent;
+  border-top: 200px solid #03A9F4;
+  border-left: 300px solid transparent;
+  transition: transform 1s, border 1s ease-in-out;
+  transform-origin: top;
+  transform: rotateX(0deg);
+  z-index: 500;
+}
+
+/* Kapağın açılma hali */
+.top.open {
+  transform: rotateX(180deg);
+  transition: transform 0.7s, border 0.7s, z-index 0.7s ease-in-out;
+  border-top: 200px solid #2c3e50;
+  z-index: 200;
+}
+
+
+
+/* Kapağın kapanma hali */
+.top.closed {
+  transform: rotateX(0deg);
+  transition: transform 0.7s, border 0.6s, z-index 0.6s ease-in-out;
+  z-index: 1200 !important;
+}
+
+
+/* Zarfın alt kısmı */
+.bottom {
+  width: 600px;
+  height: 190px;
+  position: absolute;
+  background: #2b67cb;
+  top: 160px;
+  border-radius: 0 0 20px 20px;
+  z-index: 310;
+}
+
+/* Kartın ilk çekilme animasyonu */
+.pull {
+  animation: message_animation 2s ease-in-out;
+  animation-delay: 0.45s;
+  transition: 1.5s;
+  transition-delay: 1s;
+  z-index: 350;
+}
+
+/* Form alanları ve buton stilleri */
+#name,
+#email,
+#phone,
+#messarea,
+#send {
+  margin: 0;
+  padding: 5px 0 0 10px;
+  width: 570px;
+  height: 40px;
+  float: left;
+  outline: none !important;
+  display: block;
+  font-size: 18px;
+  color: #2b67cb;
+  border: none;
+  border-radius: 5px !important;
+  border-bottom: 1px solid #bdbdbd;
+}
+
+/* Mesaj yazma alanı */
+#messarea {
+  height: 117px;
+  width: 560px;
+  overflow: auto;
+  border: none;
+  padding: 10px;
+}
+
+/* Gönder butonu */
+#send {
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 10px !important;
+  cursor: pointer;
+  background: #7CB342;
+  color: #fff;
+  text-align: center;
+  transition: 0.35s;
+  letter-spacing: 1px;
+}
+
+/* Gönder butonunun hover hali */
+#send:hover {
+  background: tomato;
+  transition: 0.35s;
+}
+
+/* Frame görünme animasyonu */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Kartın yukarı çekilip sonra aşağı inmesi animasyonu */
+@keyframes message_animation {
+  0% {
+    transform: translateY(0px);
+    z-index: 300;
+  }
+  50% {
+    transform: translateY(-300px);
+    z-index: 300;
+  }
+  51% {
+    transform: translateY(-340px);
+    z-index: 350;
+  }
+  100% {
+    transform: translateY(0px);
+    z-index: 350;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  /* Zarfin gövdesi */
+  .frame {
+    width: 320px;
+    height: 260px; /* 350 * (320/600) ≈ 186 */
+    margin: auto;
+    margin-top: 350px !important;
+  }
+
+  /* Sol yan üçgen */
+  .left {
+    border-left: 160px solid #337efc;  /* 300 * 0.533 */
+    border-top: 93px solid transparent;    /* 160 * 0.583 */
+    border-bottom: 93px solid transparent; /* 160 * 0.583 */
+  }
+
+  /* Sağ yan üçgen */
+  .right {
+    border-right: 160px solid #337efc;
+    border-top: 93px solid transparent;
+    border-bottom: 93px solid transparent;
+    left: 160px; /* 300 * 0.533 */
+  }
+
+  /* Üst kapak */
+  .top {
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 107px solid #03A9F4; /* 200 * 0.533 */
+  }
+
+  /* Alt kısım */
+  .bottom {
+    width: 320px;
+    height: 260px !important; /* 190 * 0.533 */
+    top: 85px;     /* 160 * 0.533 */
+  }
+
+  /* Mesaj kartı */
+  .message {
+    width: 250px;       /* 580 * 0.517 */
+    height: 120px !important;  /* 300 * 0.5 */
+  }
+
+  /* Açma butonu */
+  #button_open_envelope {
+    width: 140px;  
+    height: 28px;   
+    top: 133px;    
+    left: 111px;   
+  }
+  #messarea{
+    height: 90px !important;
+    overflow: hidden !important;
+  }
+  #send{
+    width: 94% calc(-6%);
+    margin: auto !important;
+  }
+  .col-location {
+    flex: none;       
+    max-width: 320px; 
+    width: 320px;
+    margin-top: 200px;
+  }
+}
