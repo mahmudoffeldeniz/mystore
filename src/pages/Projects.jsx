@@ -1,7 +1,7 @@
-// src/pages/Projects.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/Projects.css";
+import { Box, Container, useMediaQuery, useTheme } from "@mui/material";
 
 export const posts = [
   {
@@ -95,47 +95,60 @@ export const posts = [
  * Eğer `count` prop'u varsa sadece ilk `count` adedi gösterir, yoksa tüm postlar
  */
 export default function Projects({ count }) {
+  const theme = useTheme();
+  // xl ve üstü true, lg ve altı false
+  const isWideScreen = useMediaQuery(theme.breakpoints.up("xl"));
   const [hoveredId, setHoveredId] = useState(null);
   const displayPosts =
     typeof count === "number" ? posts.slice(0, count) : posts;
 
+  // Ultra geniş ekranlarda Container, diğerlerinde Box kullan
+  const Wrapper = ({ children }) =>
+    isWideScreen ? (
+      <Container maxWidth="xl">{children}</Container>
+    ) : (
+      <Box px={2}>{children}</Box>
+    );
+
   return (
-    <section className="front-blog">
-      <div className="content-container">
-        <h2 className="Projecttitle">Our Projects</h2>
-        <div className="front-blog-list">
-          {displayPosts.map((post) => (
-            <Link
-              key={post.id}
-              to={`/projects/${post.id}`}
-              className="front-blog-item article-blog"
-              onMouseEnter={() => setHoveredId(post.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              <div
-                className="front-blog-item-thumbnail article__thumbnail"
-                style={{
-                  backgroundImage: `url('${post.images[0]}')`,
-                  opacity: hoveredId && hoveredId !== post.id ? 0.5 : 1,
-                }}
-              />
-              <div className="front-blog-item-content article__body">
-                <h3 className="article__title">{post.title}</h3>
-                <p className="article__excerpt">{post.excerpt}</p>
-                <footer className="article__footer">
-                  <span className="article__date">{post.date}</span>
-                  <div className="footer__readmore">
-                    <span className="footer__readmore-text">Read more</span>
-                    <span className="footer__readmore-arrow">
-                      <i className="bi bi-arrow-right"></i>
-                    </span>
-                  </div>
-                </footer>
-              </div>
-            </Link>
-          ))}
+    <Wrapper>
+      <section className="front-blog">
+        <div className="content-container">
+          <h2 className="Projecttitle">Our Projects</h2>
+          <div className="front-blog-list">
+            {displayPosts.map((post) => (
+              <Link
+                key={post.id}
+                to={`/projects/${post.id}`}
+                className="front-blog-item article-blog"
+                onMouseEnter={() => setHoveredId(post.id)}
+                onMouseLeave={() => setHoveredId(null)}
+              >
+                <div
+                  className="front-blog-item-thumbnail article__thumbnail"
+                  style={{
+                    backgroundImage: `url('${post.images[0]}')`,
+                    opacity: hoveredId && hoveredId !== post.id ? 0.5 : 1,
+                  }}
+                />
+                <div className="front-blog-item-content article__body">
+                  <h3 className="article__title">{post.title}</h3>
+                  <p className="article__excerpt">{post.excerpt}</p>
+                  <footer className="article__footer">
+                    <span className="article__date">{post.date}</span>
+                    <div className="footer__readmore">
+                      <span className="footer__readmore-text">Read more</span>
+                      <span className="footer__readmore-arrow">
+                        <i className="bi bi-arrow-right"></i>
+                      </span>
+                    </div>
+                  </footer>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Wrapper>
   );
 }

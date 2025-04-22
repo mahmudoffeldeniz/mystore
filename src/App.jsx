@@ -9,7 +9,8 @@ import Contact from "./pages/Contact";
 import ProductDetailPage from "./Components/ProductDetailPage";
 import Projects from "./pages/Projects";
 import BlogDetail from "./Components/BlogDetail";
-import ProjectDetail from "./Components/ProjectDetail"; // detay sayfan
+import ProjectDetail from "./Components/ProjectDetail";
+
 import "./App.css";
 
 function App() {
